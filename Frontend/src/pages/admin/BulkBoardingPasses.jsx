@@ -369,7 +369,7 @@ export default function BulkBoardingPasses() {
               <button
                 type="button"
                 onClick={handleDownloadTemplate}
-                className="flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-medium transition-colors shadow-sm"
+                className="flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-border bg-card hover:bg-card-hover text-text font-medium transition-colors shadow-sm"
                 title="Download CSV Template (Name, Email)"
               >
                 <Download className="w-4 h-4" />
@@ -387,7 +387,7 @@ export default function BulkBoardingPasses() {
               <button
                 type="button"
                 onClick={() => csvInputRef.current.click()}
-                className="flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-teal-300 bg-teal-50 hover:bg-teal-100 text-teal-800 font-medium transition-colors shadow-sm"
+                className="flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-border bg-card hover:bg-card-hover text-text font-medium transition-colors shadow-sm"
               >
                 <Upload className="w-4 h-4" />
                 Import CSV
