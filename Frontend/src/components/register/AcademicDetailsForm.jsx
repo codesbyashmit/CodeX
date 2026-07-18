@@ -8,7 +8,7 @@ export default function AcademicDetailsForm({ register, errors }) {
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <div>
-          <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+          <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
             University ID (QID)
           </label>
           <input
@@ -16,7 +16,7 @@ export default function AcademicDetailsForm({ register, errors }) {
             {...register("studentId", {
               required: "University ID is required",
             })}
-            className={`w-full bg-transparent border-2 ${errors.studentId ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder-gray-300`}
+            className={`w-full bg-card border-2 ${errors.studentId ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
             placeholder="QID"
           />
           {errors.studentId && (
@@ -26,12 +26,12 @@ export default function AcademicDetailsForm({ register, errors }) {
           )}
         </div>
         <div>
-          <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+          <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
             Course
           </label>
           <select
             {...register("course", { required: "Course is required" })}
-            className={`w-full bg-transparent border-2 ${errors.course ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
+            className={`w-full bg-card border-2 ${errors.course ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
           >
             <option value="">SELECT COURSE</option>
             {[
@@ -57,12 +57,12 @@ export default function AcademicDetailsForm({ register, errors }) {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
               Year
             </label>
             <select
               {...register("year", { required: "Year is required" })}
-              className={`w-full bg-transparent border-2 ${errors.year ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
+              className={`w-full bg-card border-2 ${errors.year ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
             >
               <option value="">YEAR</option>
               {["1st Year", "2nd Year", "3rd Year", "4th Year"].map((y) => (
@@ -78,12 +78,12 @@ export default function AcademicDetailsForm({ register, errors }) {
             )}
           </div>
           <div>
-            <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
               Semester
             </label>
             <select
               {...register("semester", { required: "Semester is required" })}
-              className={`w-full bg-transparent border-2 ${errors.semester ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
+              className={`w-full bg-card border-2 ${errors.semester ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider cursor-pointer`}
             >
               <option value="">SEM</option>
               {["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"].map(
@@ -103,13 +103,13 @@ export default function AcademicDetailsForm({ register, errors }) {
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
               Section
             </label>
             <input
               type="text"
               {...register("section", { required: "Section is required" })}
-              className={`w-full bg-transparent border-2 ${errors.section ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder-gray-300`}
+              className={`w-full bg-card border-2 ${errors.section ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
               placeholder="Section"
             />
             {errors.section && (
@@ -119,13 +119,13 @@ export default function AcademicDetailsForm({ register, errors }) {
             )}
           </div>
           <div>
-            <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+            <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
               Set / Group
             </label>
             <input
               type="text"
               {...register("set", { required: "Set/Group is required" })}
-              className={`w-full bg-transparent border-2 ${errors.set ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder-gray-300`}
+              className={`w-full bg-card border-2 ${errors.set ? "border-danger focus:border-danger" : "border-border focus:border-accent"} text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
             />
             {errors.set && (
               <p className="mt-1 text-xs text-danger font-bold uppercase">

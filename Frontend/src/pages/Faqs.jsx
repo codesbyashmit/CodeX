@@ -16,7 +16,7 @@ const Faqs = () => {
         className="absolute inset-0 pointer-events-none opacity-[0.04] z-0"
         style={{
           backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            "linear-gradient(var(--color-text) 1px, transparent 1px), linear-gradient(90deg, var(--color-text) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       ></div>
@@ -28,13 +28,13 @@ const Faqs = () => {
           <h1 className="font-oswald text-5xl md:text-6xl font-bold uppercase text-text mb-3">
             FAQ
           </h1>
-          <p className="text-text-text-muted text-sm font-medium">
+          <p className="text-text-muted text-sm font-medium">
             Clear answers to your most pressing questions about the Codex Club.
           </p>
         </div>
         <div className="px-4 lg:px-12">
           {activeFaqs.length === 0 ? (
-            <div className="text-center py-20 text-text-text-muted font-bold uppercase tracking-widest">
+            <div className="text-center py-20 text-text-muted font-bold uppercase tracking-widest">
               No active entries found.
             </div>
           ) : (
@@ -67,7 +67,7 @@ const Faqs = () => {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <div className="p-6 md:p-8 pt-0 border-t-2 border-dashed border-border-soft mt-2 text-text-text-muted text-sm leading-relaxed">
+                      <div className="p-6 md:p-8 pt-0 border-t-2 border-dashed border-border-soft mt-2 text-text-muted text-sm leading-relaxed">
                         {faq.answer}
                       </div>
                     </div>

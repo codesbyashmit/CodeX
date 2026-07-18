@@ -60,13 +60,13 @@ const Contact = () => {
           <h2 className="font-oswald text-4xl font-bold uppercase text-text mb-4">
             Message Sent
           </h2>
-          <p className="text-text-text-muted font-medium mb-8">
+          <p className="text-text-muted font-medium mb-8">
             Thank you for reaching out! We've received your message and will get
             back to you shortly.
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="w-full bg-text text-bg py-4 font-bold uppercase tracking-widest hover:bg-accent hover:text-text transition-colors border-2 border-transparent hover:border-text"
+            className="w-full bg-text text-bg py-4 font-bold uppercase tracking-widest hover:bg-accent hover:text-[#111111] transition-colors border-2 border-transparent hover:border-accent"
           >
             Send Another Message
           </button>
@@ -81,7 +81,7 @@ const Contact = () => {
         className="absolute inset-0 pointer-events-none opacity-[0.04] z-0"
         style={{
           backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            "linear-gradient(var(--color-text) 1px, transparent 1px), linear-gradient(90deg, var(--color-text) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       ></div>
@@ -95,7 +95,7 @@ const Contact = () => {
             {contact.titlePart1}{" "}
             <span className="text-accent">{contact.titlePart2}</span>
           </h1>
-          <p className="text-text-text-muted text-sm font-medium">
+          <p className="text-text-muted text-sm font-medium">
             {contact.description}
           </p>
         </header>
@@ -107,17 +107,17 @@ const Contact = () => {
           <div className="space-y-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
                   Full Name
                 </label>
                 <input
                   type="text"
                   {...register("name", { required: "Name is required" })}
-                  className={`w-full bg-transparent border-2 ${
+                  className={`w-full bg-card border-2 ${
                     errors.name
                       ? "border-danger focus:border-danger"
                       : "border-border focus:border-accent"
-                  } text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder-gray-300`}
+                  } text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
                   placeholder="Enter Your Name"
                 />
                 {errors.name && (
@@ -127,7 +127,7 @@ const Contact = () => {
                 )}
               </div>
               <div>
-                <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+                <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
                   Email Address
                 </label>
                 <input
@@ -136,11 +136,11 @@ const Contact = () => {
                     required: "Email is required",
                     pattern: { value: /^\S+@\S+$/i, message: "Invalid email" },
                   })}
-                  className={`w-full bg-transparent border-2 ${
+                  className={`w-full bg-card border-2 ${
                     errors.email
                       ? "border-danger focus:border-danger"
                       : "border-border focus:border-accent"
-                  } text-text p-3 focus:outline-none transition-colors font-bold text-sm tracking-wider placeholder-gray-300`}
+                  } text-text p-3 focus:outline-none transition-colors font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
                   placeholder="name@example.com"
                 />
                 {errors.email && (
@@ -152,17 +152,17 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+              <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
                 Subject
               </label>
               <input
                 type="text"
                 {...register("subject", { required: "Subject is required" })}
-                className={`w-full bg-transparent border-2 ${
+                className={`w-full bg-card border-2 ${
                   errors.subject
                     ? "border-danger focus:border-danger"
                     : "border-border focus:border-accent"
-                } text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder-gray-300`}
+                } text-text p-3 focus:outline-none transition-colors uppercase font-bold text-sm tracking-wider placeholder:text-text-muted/40`}
                 placeholder="What is this regarding?"
               />
               {errors.subject && (
@@ -173,17 +173,17 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-text-text-muted mb-2 uppercase tracking-wider">
+              <label className="block text-xs font-bold text-text-muted mb-2 uppercase tracking-wider">
                 Message
               </label>
               <textarea
                 {...register("message", { required: "Message is required" })}
                 rows="5"
-                className={`w-full bg-transparent border-2 ${
+                className={`w-full bg-card border-2 ${
                   errors.message
                     ? "border-danger focus:border-danger"
                     : "border-border focus:border-accent"
-                } text-text p-3 focus:outline-none transition-colors font-medium text-sm placeholder-gray-300 resize-none`}
+                } text-text p-3 focus:outline-none transition-colors font-medium text-sm placeholder:text-text-muted/40 resize-none`}
                 placeholder="How can we help you?"
               ></textarea>
               {errors.message && (
@@ -195,7 +195,7 @@ const Contact = () => {
           </div>
 
           <div className="mb-8 flex flex-col items-center border-2 border-border-soft p-4 bg-card-hover">
-            <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-text-text-muted">
+            <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest text-text-muted">
               <ShieldCheck className="w-4 h-4 text-accent" /> Verification
               Required
             </div>
@@ -205,14 +205,14 @@ const Contact = () => {
                 "1x00000000000000000000AA"
               }
               onSuccess={(token) => setTurnstileToken(token)}
-              options={{ theme: "light" }}
+              options={{ theme: "auto" }}
             />
           </div>
 
           <button
             type="submit"
             disabled={loading || !turnstileToken}
-            className="w-full bg-text text-bg py-5 font-bold uppercase tracking-widest hover:bg-accent hover:text-text transition-colors border-2 border-transparent hover:border-text disabled:opacity-50 flex justify-center items-center gap-3"
+            className="w-full bg-text text-bg py-5 font-bold uppercase tracking-widest hover:bg-accent hover:text-[#111111] transition-colors border-2 border-transparent hover:border-accent disabled:opacity-50 flex justify-center items-center gap-3"
           >
             {loading ? (
               <Loader2 className="w-6 h-6 animate-spin" />
