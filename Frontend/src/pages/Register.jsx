@@ -77,12 +77,12 @@ const Register = () => {
         className="absolute inset-0 pointer-events-none opacity-[0.04] z-0"
         style={{
           backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            "linear-gradient(var(--color-text) 1px, transparent 1px), linear-gradient(90deg, var(--color-text) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       ></div>
 
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto pb-20 pt-16 px-4 md:px-12">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-20 pt-16 px-4 md:px-12">
         <header className="mb-12">
           <p className="text-accent text-xs font-bold uppercase tracking-widest mb-3">
             {register.eyebrow}
@@ -91,7 +91,7 @@ const Register = () => {
             {register.titlePart1}{" "}
             <span className="text-accent">{register.titlePart2}</span>
           </h1>
-          <p className="text-text-text-muted text-sm font-medium">
+          <p className="text-text-muted text-sm font-medium">
             {register.description}
           </p>
         </header>

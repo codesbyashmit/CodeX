@@ -25,10 +25,10 @@ const Events = () => {
   return (
     <div className="events-page flex flex-col min-h-screen bg-bg-soft relative font-jetbrains">
       <div
-        className="absolute inset-0 pointer-events-none opacity-5 z-0"
+        className="absolute inset-0 pointer-events-none opacity-[0.04] z-0"
         style={{
           backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            "linear-gradient(var(--color-text) 1px, transparent 1px), linear-gradient(90deg, var(--color-text) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -40,7 +40,7 @@ const Events = () => {
             <h1 className="text-2xl font-bold text-text tracking-tight ">
               Events
             </h1>
-            <p className="text-sm text-text-text-muted mt-1 pb-4">
+            <p className="text-sm text-text-muted mt-1 pb-4">
               Discover our timeline of upcoming workshops, hackathons, and technical sessions, and browse through our past activities.
             </p>
           </div>

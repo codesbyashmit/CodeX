@@ -10,7 +10,7 @@ const About = () => {
         className="absolute inset-0 pointer-events-none opacity-[0.03] z-0"
         style={{
           backgroundImage:
-            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+            "linear-gradient(var(--color-text) 1px, transparent 1px), linear-gradient(90deg, var(--color-text) 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       ></div>
@@ -27,7 +27,7 @@ const About = () => {
           <p className="text-text text-lg md:text-xl font-medium leading-relaxed max-w-3xl mb-6">
             {about.description}
           </p>
-          <p className="text-text-text-muted leading-relaxed max-w-3xl">
+          <p className="text-text-muted leading-relaxed max-w-3xl">
             {about.mission}
           </p>
         </header>
@@ -48,7 +48,7 @@ const About = () => {
                 <h3 className="font-bold text-text text-lg mb-2">
                   {activity.title}
                 </h3>
-                <p className="text-text-text-muted text-sm leading-relaxed">
+                <p className="text-text-muted text-sm leading-relaxed">
                   {activity.description}
                 </p>
               </div>
