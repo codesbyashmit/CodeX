@@ -29,7 +29,7 @@ const LeadershipCard = ({ member }) => {
   );
 };
 
-const LeadershipSection = ({ section, className = "" }) => {
+const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" }) => {
   const Icon = IconMap[section.icon] || Users;
   return (
     <div
@@ -49,7 +49,7 @@ const LeadershipSection = ({ section, className = "" }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className={`grid gap-4 ${gridClass}`}>
         {section.members.map((member) => (
           <LeadershipCard key={member.id} member={member} />
         ))}
@@ -67,16 +67,26 @@ const Leadership = ({ data }) => {
         <LeadershipSection
           section={data.universityLeadership}
           className="lg:w-1/2"
+          gridClass="grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
         />
         <LeadershipSection
           section={data.computerApplications}
           className="lg:w-1/2"
+          gridClass="grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
         />
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
-        <LeadershipSection section={data.clubLeadership} className="lg:w-1/3" />
-        <LeadershipSection section={data.facultyMentors} className="lg:w-2/3" />
+        <LeadershipSection 
+          section={data.clubLeadership} 
+          className="lg:w-1/3" 
+          gridClass="grid-cols-1 2xl:grid-cols-2"
+        />
+        <LeadershipSection 
+          section={data.facultyMentors} 
+          className="lg:w-2/3" 
+          gridClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        />
       </div>
     </div>
   );
