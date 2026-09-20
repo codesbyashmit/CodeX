@@ -78,21 +78,6 @@ const Team = () => {
               <p className="text-sm text-text-muted mt-2">
                 Meet the passionate leaders, engineers, and creators driving CodeX forward.
               </p>
-              
-              <div className="flex flex-wrap gap-4 mt-6">
-                <button 
-                  onClick={() => document.getElementById('leadership-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-4 py-2 bg-card-hover border border-border/80 text-text text-sm font-bold uppercase tracking-wide rounded-lg hover:border-accent/50 transition-colors"
-                >
-                  Leadership
-                </button>
-                <button 
-                  onClick={() => document.getElementById('roster-section')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-4 py-2 bg-card-hover border border-border/80 text-text text-sm font-bold uppercase tracking-wide rounded-lg hover:border-accent/50 transition-colors"
-                >
-                  Team Roster
-                </button>
-              </div>
             </div>
 
             <div className="flex items-center gap-3">
