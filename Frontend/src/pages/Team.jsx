@@ -6,6 +6,8 @@ import { AdminTeamCardSkeleton } from "../components/common/skeletons";
 import { TeamMemberCard } from "../components/common/TeamMemberCard";
 import PageContainer from "../components/common/PageContainer";
 import { generateAcademicYears } from "../utils/helpers";
+import Leadership from "../components/team/Leadership";
+import contentData from "../data/content.json";
 
 const formAcademicYears = generateAcademicYears();
 
@@ -76,6 +78,21 @@ const Team = () => {
               <p className="text-sm text-text-muted mt-2">
                 Meet the passionate leaders, engineers, and creators driving CodeX forward.
               </p>
+              
+              <div className="flex flex-wrap gap-4 mt-6">
+                <button 
+                  onClick={() => document.getElementById('leadership-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-4 py-2 bg-card-hover border border-border/80 text-text text-sm font-bold uppercase tracking-wide rounded-lg hover:border-accent/50 transition-colors"
+                >
+                  Leadership
+                </button>
+                <button 
+                  onClick={() => document.getElementById('roster-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-4 py-2 bg-card-hover border border-border/80 text-text text-sm font-bold uppercase tracking-wide rounded-lg hover:border-accent/50 transition-colors"
+                >
+                  Team Roster
+                </button>
+              </div>
             </div>
 
             <div className="flex items-center gap-3">
@@ -97,32 +114,44 @@ const Team = () => {
             </div>
           </header>
 
-          {loading ? (
-            <div className="flex flex-col gap-12 w-full">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                  <AdminTeamCardSkeleton key={i} />
-                ))}
+          <div id="leadership-section" className="pt-4 pb-12">
+            <Leadership data={contentData.leadership} />
+          </div>
+
+          <div id="roster-section" className="pt-8 border-t border-border/60">
+            {loading ? (
+              <div className="w-full max-w-7xl mx-auto space-y-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                  {[...Array(10)].map((_, index) => (
+                    <div key={index} className="w-full">
+                      <AdminTeamCardSkeleton />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ) : members.length === 0 ? (
-            <div className="glass-card rounded-2xl p-16 text-center shadow-sm w-full border border-dashed border-border">
-              <Users className="w-12 h-12 text-text-muted mx-auto mb-4" />
-              <h3 className="text-lg font-bold font-display uppercase text-text mb-1">
-                No Team Members Found
-              </h3>
-              <p className="text-text-muted text-xs font-mono">
-                No roster records available for Academic Year {filterYear}.
-              </p>
-            </div>
-          ) : (
-            <div className="flex flex-col gap-14 w-full">
-              {renderTeamSection("Admin Team", adminTeam)}
-              {renderTeamSection("Core Team", coreTeam)}
-              {renderTeamSection("Tech Team", techTeam)}
-              {renderTeamSection("Graphic & Media Team", graphicTeam)}
-            </div>
-          )}
+            ) : displayedMembers.length > 0 ? (
+              <div className="w-full max-w-7xl mx-auto flex flex-col gap-12">
+                {renderTeamSection("Admin Team", adminTeam)}
+                {renderTeamSection("Core Team", coreTeam)}
+                {renderTeamSection("Tech Team", techTeam)}
+                {renderTeamSection("Graphic Team", graphicTeam)}
+              </div>
+            ) : (
+              <div className="flex flex-col items-center justify-center py-20 text-center">
+                <div className="w-16 h-16 bg-card rounded-full flex items-center justify-center mb-4 border border-border/60">
+                  <Users className="w-8 h-8 text-text-muted" />
+                </div>
+                <h3 className="text-xl font-bold text-text mb-2">
+                  No Team Members Found
+                </h3>
+                <p className="text-text-muted max-w-md">
+                  We couldn't find any team members for the academic year{" "}
+                  <span className="text-accent">{filterYear}</span>. Try selecting a
+                  different year.
+                </p>
+              </div>
+            )}
+          </div>
         </PageContainer>
       </div>
     </div>
