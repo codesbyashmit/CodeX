@@ -63,6 +63,7 @@ const Leadership = ({ data }) => {
 
   return (
     <div className="w-full flex flex-col gap-6">
+      {/* Row 1: University + Computer Applications side by side */}
       <div className="flex flex-col lg:flex-row gap-6">
         <LeadershipSection
           section={data.universityLeadership}
@@ -76,18 +77,17 @@ const Leadership = ({ data }) => {
         />
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6">
-        <LeadershipSection 
-          section={data.clubLeadership} 
-          className="lg:w-1/3" 
-          gridClass="grid-cols-1 2xl:grid-cols-2"
-        />
-        <LeadershipSection 
-          section={data.facultyMentors} 
-          className="lg:w-2/3" 
-          gridClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-        />
-      </div>
+      {/* Row 2: Club Leadership full width */}
+      <LeadershipSection
+        section={data.clubLeadership}
+        gridClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      />
+
+      {/* Row 3: Faculty / Mentors full width */}
+      <LeadershipSection
+        section={data.facultyMentors}
+        gridClass="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+      />
     </div>
   );
 };
