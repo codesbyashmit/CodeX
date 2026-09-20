@@ -70,7 +70,7 @@ const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 s
         </div>
       </div>
 
-      <div className={`flex flex-wrap justify-center gap-4`}>
+      <div className={`flex flex-wrap justify-center gap-8`}>
         {section.members.map((member) => (
           <LeadershipCard key={member.id} member={member} layout={layout} />
         ))}
