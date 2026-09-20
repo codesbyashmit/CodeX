@@ -50,7 +50,7 @@ const LeadershipCard = ({ member, layout = "vertical" }) => {
   );
 };
 
-const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3", layout = "vertical" }) => {
+const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3", layout = "vertical", gapClass = "gap-4" }) => {
   const Icon = IconMap[section.icon] || Users;
   return (
     <div
@@ -70,7 +70,7 @@ const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 s
         </div>
       </div>
 
-      <div className={`flex flex-wrap justify-center gap-8`}>
+      <div className={`flex flex-wrap justify-center ${gapClass}`}>
         {section.members.map((member) => (
           <LeadershipCard key={member.id} member={member} layout={layout} />
         ))}
@@ -103,6 +103,7 @@ const Leadership = ({ data }) => {
         section={data.clubLeadership}
         gridClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         layout="horizontal"
+        gapClass="gap-8 md:gap-12"
       />
 
       {/* Row 3: Faculty / Mentors full width */}
