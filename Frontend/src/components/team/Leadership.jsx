@@ -10,7 +10,7 @@ const IconMap = {
 
 const LeadershipCard = ({ member }) => {
   return (
-    <div className="flex flex-col items-center text-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-6 hover:border-accent/30 hover:bg-card-hover transition-colors">
+    <div className="flex flex-col items-center text-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-6 hover:border-accent/30 hover:bg-card-hover transition-colors w-44">
       <div className="relative mb-2">
         <div className="absolute inset-0 bg-accent/20 blur-md rounded-full"></div>
         <img
@@ -49,7 +49,7 @@ const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 s
         </div>
       </div>
 
-      <div className={`grid gap-4 ${gridClass}`}>
+      <div className={`flex flex-wrap justify-center gap-4`}>
         {section.members.map((member) => (
           <LeadershipCard key={member.id} member={member} />
         ))}
