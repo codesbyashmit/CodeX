@@ -8,7 +8,28 @@ const IconMap = {
   BookOpen: BookOpen,
 };
 
-const LeadershipCard = ({ member }) => {
+const LeadershipCard = ({ member, layout = "vertical" }) => {
+  if (layout === "horizontal") {
+    return (
+      <div className="flex items-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-4 hover:border-accent/30 hover:bg-card-hover transition-colors w-72">
+        <div className="relative shrink-0">
+          <div className="absolute inset-0 bg-accent/20 blur-md rounded-full"></div>
+          <img
+            src={member.photo}
+            alt={member.name}
+            className="w-16 h-16 rounded-full border border-border/60 object-cover relative z-10"
+          />
+        </div>
+        <div className="flex flex-col text-left">
+          <h4 className="text-base font-bold text-text">
+            {member.name}
+          </h4>
+          <p className="text-xs font-mono text-text-muted mt-1.5">{member.role}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center text-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-6 hover:border-accent/30 hover:bg-card-hover transition-colors w-44">
       <div className="relative mb-2">
@@ -29,7 +50,7 @@ const LeadershipCard = ({ member }) => {
   );
 };
 
-const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" }) => {
+const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3", layout = "vertical" }) => {
   const Icon = IconMap[section.icon] || Users;
   return (
     <div
@@ -51,7 +72,7 @@ const LeadershipSection = ({ section, className = "", gridClass = "grid-cols-1 s
 
       <div className={`flex flex-wrap justify-center gap-4`}>
         {section.members.map((member) => (
-          <LeadershipCard key={member.id} member={member} />
+          <LeadershipCard key={member.id} member={member} layout={layout} />
         ))}
       </div>
     </div>
@@ -81,6 +102,7 @@ const Leadership = ({ data }) => {
       <LeadershipSection
         section={data.clubLeadership}
         gridClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        layout="horizontal"
       />
 
       {/* Row 3: Faculty / Mentors full width */}
