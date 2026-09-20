@@ -10,20 +10,20 @@ const IconMap = {
 
 const LeadershipCard = ({ member }) => {
   return (
-    <div className="flex items-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-4 hover:border-accent/30 hover:bg-card-hover transition-colors">
-      <div className="relative">
+    <div className="flex flex-col items-center text-center gap-4 bg-card-hover/40 border border-border/40 rounded-xl p-6 hover:border-accent/30 hover:bg-card-hover transition-colors">
+      <div className="relative mb-2">
         <div className="absolute inset-0 bg-accent/20 blur-md rounded-full"></div>
         <img
           src={member.photo}
           alt={member.name}
-          className="w-16 h-16 rounded-full border border-border/60 object-cover relative z-10"
+          className="w-20 h-20 rounded-full border border-border/60 object-cover relative z-10"
         />
       </div>
-      <div>
-        <h4 className="text-lg font-bold text-text flex items-center gap-2">
+      <div className="flex flex-col items-center">
+        <h4 className="text-base font-bold text-text">
           {member.name}
         </h4>
-        <p className="text-sm font-mono text-text-muted mt-1">{member.role}</p>
+        <p className="text-xs font-mono text-text-muted mt-1.5">{member.role}</p>
       </div>
     </div>
   );
